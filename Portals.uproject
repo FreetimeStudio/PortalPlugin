@@ -1,0 +1,19 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "4.16",
+	"Category": "",
+	"Description": "",
+    "Plugins": [
+        {
+            "Enabled": true,
+            "Name": "PortalPlugin"
+        }
+    ],
+	"Modules": [
+		{
+			"Name": "Portals",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

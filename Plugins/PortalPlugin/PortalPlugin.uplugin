@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Portal Plugin",
+	"Description": "A plugin that adds rudimentary portal actors and function library.",
+	"Category": "Gameplay",
+	"CreatedBy": "Pascal Krabbe",
+	"CreatedByURL": "https://github.com/FreetimeStudio/PortalPlugin",
+	"DocsURL": "https://github.com/FreetimeStudio/PortalPlugin/wiki",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/FreetimeStudio/PortalPlugin/issues",
+	"EngineVersion": "4.16.0",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "PortalPlugin",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
