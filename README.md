@@ -19,6 +19,8 @@ If you are using the plugin in another project make sure to enable "Global Clip 
 # Documentation
 The code is pretty tidied up, but there is not much documentation as of yet. Lots of people have been requesting that I upload my portal mechanics so here you are. I might come back to it at some point, but no guarantee.
 
+There is also the wiki, which is open to everyone so feel free to add to it.
+
 # Support
 Feel free to post any issues, help others with theirs or submit pull requests. I will look at the later, but in general there is no official support for this.
 
