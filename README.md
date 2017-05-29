@@ -16,6 +16,9 @@ If you are using the plugin in another project make sure to enable "Global Clip 
 
 #2 For some reason using a VR portal and planar portal in the same map or during the same editor session breaks projection. Restart the editor to fix.
 
+For more issues visit the project's issue page:
+https://github.com/FreetimeStudio/PortalPlugin/issues
+
 # Documentation
 The code is pretty tidied up, but there is not much documentation as of yet. Lots of people have been requesting that I upload my portal mechanics so here you are. I might come back to it at some point, but no guarantee.
 
