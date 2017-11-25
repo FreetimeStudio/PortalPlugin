@@ -5,7 +5,8 @@
 #include "PortalFunctionLibrary.h"
 #include "Components/SceneCaptureComponent2D.h"
 #include "Engine/TextureRenderTarget2D.h"
-#include "Runtime/HeadMountedDisplay/Public/IHeadMountedDisplay.h"
+#include "IHeadMountedDisplay.h"
+#include "IXRTrackingSystem.h"
 
 //Credit goes to AgentMilkshake1 https://answers.unrealengine.com/questions/234597/screenspace-portals-on-vr.html
 float UPortalFunctionLibrary::GetFOVForCaptureComponents(const APlayerController* ForPlayerController)
@@ -26,10 +27,10 @@ float UPortalFunctionLibrary::GetFOVForCaptureComponents(const APlayerController
 	}
 
 	// FOV changes when we have a VR Headset enabled
-	if (GEngine->HMDDevice.IsValid() && GEngine->IsStereoscopic3D())
+	if (GEngine->XRSystem.IsValid() && GEngine->IsStereoscopic3D())
 	{
 		float HFOV, VFOV;
-		GEngine->HMDDevice->GetFieldOfView(HFOV, VFOV);
+		GEngine->XRSystem->GetHMDDevice()->GetFieldOfView(HFOV, VFOV);
 		if (VFOV > 0 && HFOV > 0)
 		{
 			ResultFOV = FMath::Max(HFOV, VFOV);
