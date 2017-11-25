@@ -30,11 +30,12 @@ float UPortalFunctionLibrary::GetFOVForCaptureComponents(const APlayerController
 	// FOV changes when we have a VR Headset enabled
 	if (GEngine->XRSystem.IsValid() && GEngine->IsStereoscopic3D())
 	{
+		const float EdgeScaling = 1.1f;
 		float HFOV, VFOV;
 		GEngine->XRSystem->GetHMDDevice()->GetFieldOfView(HFOV, VFOV);
 		if (VFOV > 0 && HFOV > 0)
 		{
-			ResultFOV = FMath::Max(HFOV, VFOV);
+			ResultFOV = FMath::Max(HFOV, VFOV) * EdgeScaling;
 			// AspectRatio won't be used until bConstrainAspectRatio is set to true,
 			// but it doesn't really matter since HMD calcs its own projection matrix.
 			//OutViewInfo.AspectRatio = HFOV / VFOV;
@@ -50,7 +51,7 @@ float UPortalFunctionLibrary::GetFOVForCaptureComponents(const APlayerController
 			
 			float t = ProjectionData.ProjectionMatrix.M[1][1];
 			const float Rad2Deg = 180 / PI;
-			ResultFOV = FMath::Atan(1.f / t) * 4.f * Rad2Deg;
+			ResultFOV = FMath::Atan(1.f / t) * 4.f * Rad2Deg * EdgeScaling;
 		}
 	}
 
