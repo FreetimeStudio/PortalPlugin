@@ -6,6 +6,7 @@
 #include "Components/SceneCaptureComponent2D.h"
 #include "Engine/TextureRenderTarget2D.h"
 #include "IHeadMountedDisplay.h"
+#include "Runtime/Engine/Classes/Engine/LocalPlayer.h"
 #include "IXRTrackingSystem.h"
 
 //Credit goes to AgentMilkshake1 https://answers.unrealengine.com/questions/234597/screenspace-portals-on-vr.html
@@ -39,6 +40,18 @@ float UPortalFunctionLibrary::GetFOVForCaptureComponents(const APlayerController
 			//OutViewInfo.AspectRatio = HFOV / VFOV;
 			//OutViewInfo.bConstrainAspectRatio = true;
 		}
+		else
+		{
+			FSceneViewProjectionData ProjectionData;
+
+			//SteamVR may not have FOV information, try to it via the current viewport
+			ULocalPlayer* Player = GEngine->GetGamePlayer(GEngine->GameViewport, 0);
+			Player->GetProjectionData(GEngine->GameViewport->Viewport, eSSP_FULL, ProjectionData);
+			
+			float t = ProjectionData.ProjectionMatrix.M[1][1];
+			const float Rad2Deg = 180 / PI;
+			ResultFOV = FMath::Atan(1.f / t) * 4.f * Rad2Deg;
+		}
 	}
 
 	return ResultFOV;
@@ -68,6 +81,7 @@ void UPortalFunctionLibrary::UpdatePortalVPMParameters(USceneCaptureComponent2D*
 		FPlane(1, 0, 0, 0),
 		FPlane(0, 1, 0, 0),
 		FPlane(0, 0, 0, 1));
+	CaptureComponent->FOVAngle = GetFOVForCaptureComponents();
 	const float FOV = CaptureComponent->FOVAngle * (float)PI / 360.0f;
 
 	// Build projection matrix

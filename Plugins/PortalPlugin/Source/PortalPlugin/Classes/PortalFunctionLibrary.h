@@ -16,7 +16,7 @@ class UPortalFunctionLibrary : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 	
 	UFUNCTION(BlueprintPure, BlueprintCallable, Category = "Portal")
-	static float GetFOVForCaptureComponents(const APlayerController* ForPlayerController);
+	static float GetFOVForCaptureComponents(const APlayerController* ForPlayerController = nullptr);
 
 	UFUNCTION(BlueprintCallable, Category = "Portal")
 	static void UpdatePortalVPMParameters(USceneCaptureComponent2D* CaptureComponent, UMaterialInstanceDynamic* MaterialInstance, const FTransform& CameraTransform);
