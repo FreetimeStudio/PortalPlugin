@@ -4,7 +4,8 @@
 #include "IPortalPlugin.h"
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
-
+#include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/PlayerController.h"
 
 
 
