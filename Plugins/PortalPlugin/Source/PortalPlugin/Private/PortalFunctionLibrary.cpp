@@ -8,6 +8,8 @@
 #include "IHeadMountedDisplay.h"
 #include "Runtime/Engine/Classes/Engine/LocalPlayer.h"
 #include "IXRTrackingSystem.h"
+#include "GameFramework/PlayerController.h"
+#include "Engine.h"
 
 //Credit goes to AgentMilkshake1 https://answers.unrealengine.com/questions/234597/screenspace-portals-on-vr.html
 float UPortalFunctionLibrary::GetFOVForCaptureComponents(const APlayerController* ForPlayerController)
